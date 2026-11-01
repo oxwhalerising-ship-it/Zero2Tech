@@ -19,3 +19,8 @@ dist/
 .env*
 
 backend/.venv/
+
+.vscode/
+
+backend/__pycache__/
+*.pyc
