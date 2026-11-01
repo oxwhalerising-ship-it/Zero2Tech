@@ -32,5 +32,20 @@
 
     // Terminal
     "terminal.border": "#2A312E"
-  }
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:venv",
+  "python-envs.defaultPackageManager": "ms-python.python:pip",
+  "python-envs.workspaceSearchPaths": [
+    "${workspaceFolder}/backend/.venv"
+  ],
+  "python-envs.terminal.autoActivationType": "shellStartup",
+  "python.terminal.activateEnvironment": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+  "python-envs.pythonProjects": [
+    {
+      "path": "backend",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
 }
