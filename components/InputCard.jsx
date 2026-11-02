@@ -23,12 +23,15 @@ export default function InputCard({ onResult }) {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        throw new Error(body.detail || `分析失败：${res.status}`);
+        const detail = Array.isArray(body.detail)
+          ? body.detail.map((item) => item.msg).join("；")
+          : body.detail;
+        throw new Error(detail || `分析失败：${res.status}`);
       }
 
       onResult(await res.json());
     } catch (error) {
-      setError(error.message);
+      setError(error instanceof Error ? error.message : "分析失败，请稍后重试");
     }
   }
 
