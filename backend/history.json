@@ -1,0 +1,37 @@
+[
+  {
+    "text": "今天的风很轻，适合把脑海里的想法慢慢写下来。",
+    "score": 1.0,
+    "label": "偏积极",
+    "pinyin": "jīn tiān de fēng hěn qīng ， shì hé bǎ nǎo hǎi lǐ de xiǎng fǎ màn màn xiě xià lái 。",
+    "created_at": "2026-11-02T23:08:35+00:00"
+  },
+  {
+    "text": "\"今天的风很轻，适合把脑海里的想法慢慢写下来。\"",
+    "score": 1.0,
+    "label": "偏积极",
+    "pinyin": "\" jīn tiān de fēng hěn qīng ， shì hé bǎ nǎo hǎi lǐ de xiǎng fǎ màn màn xiě xià lái 。\"",
+    "created_at": "2026-11-02T23:08:41+00:00"
+  },
+  {
+    "text": "这是第一条文字\n",
+    "score": 0.76,
+    "label": "偏积极",
+    "pinyin": "zhè shì dì yī tiáo wén zì \n",
+    "created_at": "2026-11-03T07:36:06+00:00"
+  },
+  {
+    "text": "这是第二条文字\n",
+    "score": 0.66,
+    "label": "偏积极",
+    "pinyin": "zhè shì dì èr tiáo wén zì \n",
+    "created_at": "2026-11-03T07:36:10+00:00"
+  },
+  {
+    "text": "这是第三条文字\n",
+    "score": 0.6,
+    "label": "偏积极",
+    "pinyin": "zhè shì dì sān tiáo wén zì \n",
+    "created_at": "2026-11-03T07:36:13+00:00"
+  }
+]

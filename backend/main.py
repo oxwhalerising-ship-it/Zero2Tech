@@ -3,8 +3,11 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from pypinyin import lazy_pinyin, Style
 from snownlp import SnowNLP
+from datetime import datetime, timezone
+from storage import init_db,save_record, get_history
 
 app = FastAPI()
+init_db()  # 初始化数据库
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,7 +17,7 @@ app.add_middleware(
 )
 
 profile = {
-  "heroTitle": "关于我(来自backend)",
+  "heroTitle": "关于我",
   "heroSubtitle": "项目，创意，灵感，心得，我的作品",
   "featuredWork": {
     "kicker": "作品",
@@ -41,14 +44,23 @@ def score_label(score):
         return "偏消极"
     else:
         return "中性"
+    
 
 @app.post("/api/analyze")
 def analyze(req: AnalyzeRequest):
     text = req.text
-    score = round(SnowNLP(text).sentiments, 2)  
-    return {
+    score = round(SnowNLP(text).sentiments, 2)
+    result = {
         "text": text,
         "score": score,
-        "label": score_label(score),                                         # ← 先留着，下面处理
+        "label": score_label(score),
         "pinyin": " ".join(lazy_pinyin(text, style=Style.TONE)),
+        "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),  # ← 新增
     }
+    save_record(result)                                                          # ← 存档到文件
+    return result 
+
+@app.get("/api/history")
+def history():    # ← 新增
+    return get_history(6)       # 切一刀：只留最近 10 条
+
