@@ -12,7 +12,8 @@ from dotenv import load_dotenv
 
 
 load_dotenv()  # 加载 .env 文件
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS").split(",")
+
 
 app = FastAPI()
 init_db()  # 初始化数据库
